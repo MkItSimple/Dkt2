@@ -41,6 +41,11 @@ class PokemonListFragment : Fragment(), OnClickListener {
         initUI(view)
     }
 
+    fun initUI(view: View) {
+        setupView(view)
+        getPokemonListData()
+    }
+
     fun setupView(view: View) {
         val linearLayoutManager = LinearLayoutManager(context)
         pokadapter.setClickListener(this)
@@ -78,10 +83,7 @@ class PokemonListFragment : Fragment(), OnClickListener {
         return inflater.inflate(R.layout.pokemon_list_fragment, container, false)
     }
 
-    fun initUI(view: View) {
-        setupView(view)
-        getPokemonListData()
-    }
+
 
     fun getPokemonDetails(id: Int) {
         val bundle = Bundle()

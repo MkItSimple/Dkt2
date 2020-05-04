@@ -9,6 +9,7 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class PokemonListViewModelModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(PokeMonListViewModel::class)

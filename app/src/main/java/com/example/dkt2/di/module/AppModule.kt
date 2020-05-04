@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit
 
 @Module
 class AppModule {
+
     @AppScope
     @Provides
     fun provideHttpLogging(): HttpLoggingInterceptor {
@@ -47,20 +48,11 @@ class AppModule {
     fun provideFeedService(builder: Retrofit.Builder) =
         builder.baseUrl(BASE_URL).build().create(PokemonApi::class.java)
 
-    // PokemonUsecaseModule  Replacement
-    @AppScope
-    @Provides
-    fun providePokemonUsecase(repository : PokemonRepository) = PokemonUsecase(repository)
-
-
-    //Provide PokemonApi
-    @AppScope
-    @Provides
-    fun provideApi() = PokemonApi::class.java
-
-
-    // Provide PokemonRepository
     @AppScope
     @Provides
     fun provideFeedRepository(api: PokemonApi) = PokemonRepository(api)
+
+    @AppScope
+    @Provides
+    fun provideFeedUseCase(repository : PokemonRepository) = PokemonUsecase(repository)
 }
