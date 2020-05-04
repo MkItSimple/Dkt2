@@ -1,3 +1,9 @@
 package com.example.dkt2.data
 
-data class Pokemon (val name:String , val url:String)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Pokemon (val name:String , val url:String): Parcelable {
+    constructor() : this("", "")
+}

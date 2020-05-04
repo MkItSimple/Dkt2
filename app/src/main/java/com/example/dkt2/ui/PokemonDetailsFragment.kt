@@ -38,7 +38,6 @@ class PokemonDetailsFragment : BaseFragment() {
             pokemonDetailsViewModel.getPokemonDetails(id)
             observePokemonDetails()
         }
-
     }
 
     fun observePokemonDetails() {
